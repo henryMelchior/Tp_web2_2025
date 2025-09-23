@@ -1,0 +1,52 @@
+ChatGPT Plus
+
+Perfecto, vamos punto por punto:
+
+1. Ejemplos concretos de por qué se utilizan archivos en vez de una base de datos
+
+Hay casos donde usar archivos es más simple, eficiente o económico que usar una base de datos:
+
+Configuraciones del sistema:
+Ejemplo: archivos .ini, .json, .env.
+Justificación: no se necesita una estructura compleja ni consultas avanzadas; basta con leer un par de valores rápidamente.
+
+Logs de aplicaciones:
+Ejemplo: access.log en un servidor web.
+Justificación: escribir en un archivo de texto es rápido, no requiere transacciones, y los logs suelen analizarse en bloque, no en tiempo real.
+
+Archivos multimedia o grandes volúmenes binarios:
+Ejemplo: guardar videos en un servidor de streaming (Netflix, YouTube).
+Justificación: es más eficiente servirlos desde el sistema de archivos o desde un CDN que desde una base de datos.
+
+Simplicidad en proyectos pequeños:
+Ejemplo: una app de escritorio que guarda preferencias en un .txt.
+Justificación: instalar y mantener una base de datos es innecesario si solo se guardan unos pocos datos locales.
+
+2. ¿Las imágenes y videos se pueden almacenar en una BBDD?
+
+Sí, se pueden almacenar en una base de datos usando tipos de datos binarios (por ejemplo, BLOB en MySQL).
+Sin embargo, no siempre es recomendable, porque:
+
+Ocupa mucho espacio en la BBDD, haciendo más lentas las copias de seguridad y las consultas.
+
+Aumenta el tráfico de red al traer datos binarios grandes.
+
+Es más complejo escalar el sistema si la BBDD se vuelve muy pesada.
+
+Por eso, lo más común es guardar las imágenes y videos en el sistema de archivos y solo almacenar la ruta o URL en la base de datos.
+
+3. ¿Cómo asociar una imagen a un registro (ej. foto carnet de un usuario)?
+
+La forma más utilizada es:
+
+Guardar la imagen en el servidor (en una carpeta como /uploads/usuarios/).
+
+Guardar en la base de datos la ruta o nombre del archivo.
+
+Ejemplo de tabla usuarios:
+
+id_usuario	nombre	foto
+1	Juan Pérez	uploads/1.jpg
+2	Ana Gómez	uploads/2.png
+
+Cuando se necesita mostrar la foto, la aplicación lee el nombre o ruta desde la BBDD y carga el archivo desde el sistema de archivos.
