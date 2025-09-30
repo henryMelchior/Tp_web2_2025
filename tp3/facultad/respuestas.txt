@@ -1,0 +1,7 @@
+El operador LIKE en SQL se usa para buscar patrones dentro de una columna de texto.
+Sirve para hacer búsquedas parciales o con coincidencias aproximadas.
+Caracteres comodín más comunes:
+
+% → representa cero o más caracteres.
+
+_ → representa un solo carácter.

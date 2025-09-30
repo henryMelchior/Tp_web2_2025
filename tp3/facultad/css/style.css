@@ -1,0 +1,27 @@
+/* Contenedor principal */
+.contenedor {
+    display: flex;           /* pone los hijos en fila */
+    flex-wrap: nowrap;       /* evita que se apilen */
+    width: 100%;
+    gap: 20px;               /* espacio entre bloques */
+}
+
+/* Cada bloque ocupa la mitad */
+.bloque {
+    flex: 0 0 50%;           /* ancho fijo 50% */
+    box-sizing: border-box;  /* incluye padding y borde en el ancho */
+}
+
+/* Estilo de la card del formulario */
+.bloque.formulario {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+/* Lista dentro del bloque derecho */
+.bloque.lista ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
